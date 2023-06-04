@@ -1,12 +1,12 @@
-
-const express = require('express');
-const ArtistController = require('../controllers/artistController');
+const Router = require('express')
+const router = new Router()
+const artistController = require('../controllers/artistController')
 const checkRole = require('../middleware/checkRoleMiddleware')
-const router = express.Router();
 
-router.get('/', ArtistController.getAllArtists);
-router.post('/',checkRole('ADMIN'), ArtistController.createArtist);
-router.get('/:id', ArtistController.getArtistById);
-router.delete('/:id',checkRole('ADMIN'), ArtistController.deleteArtist);
+router.get('/', artistController.getAllArtists)
+router.get('/:id', artistController.getArtistById);
+router.post('/', checkRole('ADMIN'), artistController.createArtist)
+router.put('/:id', checkRole('ADMIN'), artistController.updateArtist);
+router.delete('/:id',checkRole('ADMIN'),artistController.deleteArtist);
 
-module.exports = router;
+module.exports = router

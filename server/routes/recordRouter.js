@@ -1,17 +1,12 @@
-const express = require('express');
-const router = express.Router();
-const recordController = require('../controllers/recordController');
+const Router = require('express')
+const router = new Router()
+const recordController = require('../controllers/recordController')
+const checkRole = require('../middleware/checkRoleMiddleware')
 
-// GET - получить все пластинки
-router.get('/', recordController.getVinyls);
+router.get('/', recordController.getAllRecords)
+router.get('/:id', recordController.getRecordById);
+router.post('/', checkRole('ADMIN'), recordController.createRecord)
+router.put('/:id', checkRole('ADMIN'), recordController.updateRecord);
+router.delete('/:id',checkRole('ADMIN'),recordController.deleteRecord);
 
-// GET - получить пластинку по id
-router.get('/:id', recordController.getVinylById);
-
-// POST - создать новую пластинку
-router.post('/',checkRole('ADMIN'), recordController.createVinyl);
-
-// DELETE - удалить пластинку
-router.delete('/:id',checkRole('ADMIN'), recordController.deleteVinyl);
-
-module.exports = router;
+module.exports = router

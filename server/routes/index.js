@@ -1,22 +1,33 @@
 const Router = require('express')
 const router = new Router()
 
-const userRouter = require('./userRouter')
+const testRouter = require('./testRouter')
+router.use('/test', testRouter)
 
-const artistRouter = require('./artistRouter')
-const cartRouter = require('./cartRouter')
-const cartRecordRouter = require('./cartRecordRouter')
-const genreRouter = require('./genreRouter')
-const trackRouter = require('./trackRouter')
-const recordRouter = require('./recordRouter')
+
+
 const albumRouter = require('./albumRouter')
 router.use('/album', albumRouter)
-router.use('/user', userRouter)
+
+const artistRouter = require('./artistRouter')
 router.use('/artist', artistRouter)
-router.use('/cart', cartRouter)
-router.use('/cartRecord', cartRecordRouter)
+
+const genreRouter = require('./genreRouter')
 router.use('/genre', genreRouter)
-router.use('/record', recordRouter)
+
+const trackRouter = require('./trackRouter')
 router.use('/track', trackRouter)
+
+const recordRouter = require('./recordRouter')
+router.use('/record', recordRouter)
+
+const cartRouter = require('./cartRouter')
+router.use('/cart', cartRouter)
+
+const cartRecordRouter = require('./cartRecordRouter')
+router.use('/cartRecord', cartRecordRouter)
+
+const userRouter = require('./userRouter')
+router.use('/user', userRouter)
 
 module.exports = router

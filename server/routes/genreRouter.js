@@ -1,17 +1,15 @@
-
-const genreRouter = require('express').Router();
+const Router = require('express')
+const router = new Router()
+const genreController = require('../controllers/genreController')
 const checkRole = require('../middleware/checkRoleMiddleware')
 
+router.get('/', genreController.getAllGenres)
+router.get('/:id', genreController.getGenreById);
+router.post('/', checkRole('ADMIN'), genreController.createGenre)
+router.put('/:id', checkRole('ADMIN'), genreController.updateGenre);
+router.delete('/:id',checkRole('ADMIN'),genreController.deleteGenre);
 
-genreRouter.get('/', GenreController.getAllGenres);
-// Получение жанра по ID
-genreRouter.get('/:id', GenreController.getGenreById);
-// Добавление нового жанра
-genreRouter.post('/',checkRole('ADMIN'), GenreController.addGenre);
-// Удаление жанра по ID
-genreRouter.delete('/:id',checkRole('ADMIN'), GenreController.deleteGenre);
-
-module.exports = genreRouter;
+module.exports = router
  
 
 

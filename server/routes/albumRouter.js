@@ -1,12 +1,12 @@
-const albumController=require('../controllers/albumController')
-const checkRole = require('../middleware/checkRoleMiddleware')
-const albumRouter = require('express').Router();
-albumRouter.get('/', albumController.getAllAlbums);
-// Получение альбома по ID
-albumRouter.get('/:id', albumController.getAlbumById);
-// Добавление нового альбома
-albumRouter.post('/',checkRole('ADMIN'), albumController.addAlbum);
-// Удаление альбома по ID
-albumRouter.delete('/:id',checkRole('ADMIN'), albumController.deleteAlbum);
+const Router = require('express');
+const router = new Router();
+const albumController = require('../controllers/albumController');
+const checkRole = require('../middleware/checkRoleMiddleware');
 
-module.exports = albumRouter;
+router.get('/', albumController.getAllAlbums);
+router.get('/:id', albumController.getAlbumById);
+router.post('/', checkRole('ADMIN'), albumController.createAlbum);
+router.put('/:id', checkRole('ADMIN'), albumController.updateAlbum);
+router.delete('/:id', checkRole('ADMIN'), albumController.deleteAlbum);
+
+module.exports = router;

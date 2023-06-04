@@ -1,22 +1,18 @@
-const express = require('express');
-const CartController = require('../controllers/cartController');
-const router = express.Router();
-const {Cart, CartRecord} = require('../models/models');
+const Router = require('express')
+const router = new Router()
+const cartController = require('../controllers/cartController')
+const checkRole = require('../middleware/checkRoleMiddleware')
 
-// Роутер для корзины
-const cartRouter = express.Router();
 
-// Создание экземпляра контроллера корзины
-const cartController = new CartController();
+//POST /: создание новой корзины (createCart)
+router.post('/', cartController.createCart);
+//GET /:userId: получение корзины по ID пользователя (getCartByUserId)
+router.get('/:userId', cartController.getCartByUserId);
+//PUT /:userId: обновление корзины по ID пользователя (updateCart)
+router.put('/:userId', cartController.updateCart);
+//DELETE /:userId: удаление корзины по ID пользователя (deleteCartByUserId)
+router.delete('/:userId', cartController.deleteCartByUserId);
 
-// Получение содержимого корзины
-cartRouter.get('/', cartController.getCart.bind(cartController));
 
-// Добавление элемента в корзину
-cartRouter.post('/', cartController.addItemToCart.bind(cartController));
 
-// Удаление элемента из корзины
-cartRouter.delete('/:id', cartController.removeItemFromCart.bind(cartController));
-
-// Экспортируем роутер
-module.exports = cartRouter;
+module.exports = router

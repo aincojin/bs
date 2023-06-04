@@ -1,53 +1,89 @@
-const Artist = require('../models/models');
+const db = require("../db.js");
 
 class ArtistController {
-  static async getAllArtists(req, res) {
-    try {
-      const artists = await Artist.find();
-      res.json(artists);
-    } catch (error) {
-      console.error(error);
-      res.status(500).send('Server error');
-    }
-  }
-
-  static async createArtist(req, res) {
-    try {
-      const artist = new Artist(req.body);
-      await artist.save();
-      res.json(artist);
-    } catch (error) {
-      console.error(error);
-      res.status(500).send('Server error');
-    }
-  }
-
-  static async getArtistById(req, res) {
-    try {
-      const artist = await Artist.findById(req.params.id);
-      if (!artist) {
-        return res.status(404).json({ msg: 'Artist not found' });
+    // Получение списка всех артистов
+    async getAllArtists(req, res) {
+      try {
+        const artists = await db.query(`SELECT * FROM artists`);
+        res.json(artists.rows);
+      } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Не удалось получить список артистов' });
       }
-      res.json(artist);
-    } catch (error) {
-      console.error(error);
-      res.status(500).send('Server error');
     }
-  }
-
-
-  static async deleteArtist(req, res) {
-    try {
-      const artist = await Artist.findByIdAndDelete(req.params.id);
-      if (!artist) {
-        return res.status(404).json({ msg: 'Artist not found' });
+    //Получение артиста по его ID
+    async getArtistById(req, res) {
+      try {
+        const id = req.params.id;
+        const artist = await db.query(`SELECT * FROM artists WHERE id = $1`, [id]);
+    
+        if (artist.rowCount === 0) {
+          return res.status(404).json({ message: 'Артист не найден' });
+        }
+    
+        res.json(artist.rows[0]);
+      } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Ошибка сервера' });
       }
-      res.json({ msg: 'Artist deleted' });
-    } catch (error) {
-      console.error(error);
-      res.status(500).send('Server error');
     }
-  }
+    
+    // Добавление нового артиста
+    async createArtist(req, res) {
+      const { artistname, country } = req.body;
+    
+      try {
+        const newArtist = await db.query(
+          `INSERT INTO public.artists(artistname, country) VALUES ($1, $2) RETURNING *`,
+          [artistname, country]
+        );
+        res.json(newArtist.rows[0]);
+      } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Не удалось добавить артиста' });
+      }
+    }
+    // Обновление информации об артисте
+    async updateArtist(req, res) {
+      const artistId = req.params.id;
+      const { artistname, country } = req.body;
+
+      try {
+        const updatedArtist = await db.query(
+          `UPDATE public.artists SET artistname = $1, country = $2 WHERE id = $3 RETURNING *`,
+          [artistname, country, artistId]
+        );
+
+        if (updatedArtist.rows.length === 0) {
+          return res.status(404).json({ error: 'Артист не найден' });
+        }
+
+        res.json(updatedArtist.rows[0]);
+      } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Не удалось обновить информацию об артисте' });
+      }
+    }
+
+    //Удаление существующего артиста
+    async deleteArtist(req, res) {
+      const artistId = req.params.id;
+    
+      try {
+        const deletedArtist = await db.query(`DELETE FROM artists WHERE id = $1 RETURNING *`, [artistId]);
+    
+        if (deletedArtist.rows.length === 0) {
+          return res.status(404).json({ error: 'Артист не найден' });
+        }
+    
+        res.json(deletedArtist.rows[0]);
+      } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Не удалось удалить артиста' });
+      }
+    }
+    
+    
 }
-
-module.exports = ArtistController;
+  module.exports = new ArtistController()
+  

@@ -2,19 +2,12 @@ const express = require('express');
 const router = express.Router();
 const cartRecordController = require('../controllers/cartRecordController');
 
-// GET - получить все записи корзины
-router.get('/', cartRecordController.getCartRecords);
+//POST /add-to-cart - добавление товара в корзину
+router.post('/add-to-cart', cartRecordController.addToCart);
+//DELETE /remove-from-cart/:userId/:productId - удаление товара из корзины по id пользователя и id товара
+router.delete('/remove-from-cart/:userid/:recordid', cartRecordController.removeFromCart);
+//GET /cart-items/:userId - получение всех товаров в корзине для пользователя по его id
+router.get('/cart-items/:userId', cartRecordController.getCartItemsByUserId);
 
-// GET - получить запись корзины по id
-router.get('/:id', cartRecordController.getCartRecordById);
-
-// POST - создать новую запись корзины
-router.post('/', cartRecordController.createCartRecord);
-
-// PUT - обновить информацию о записи
-router.put('/:id', cartRecordController.updateCartRecord);
-
-// DELETE - удалить запись из корзины
-router.delete('/:id', cartRecordController.deleteCartRecord);
 
 module.exports = router;
