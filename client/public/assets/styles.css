@@ -1,0 +1,344 @@
+*{
+    margin:0;
+    padding:0;
+}
+html,body{
+    min-width: 100%;
+    min-height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    scroll-behavior: smooth; 
+    /* overflow-y: hidden; */
+}
+body{
+    font-family: 'League Spartan', sans-serif;
+    /* font-family: 'Parisienne', cursive;
+    font-family: 'Poiret One', cursive; */
+    background-color: #000000;
+    color: #F0EFE7;
+    
+}
+body::-webkit-scrollbar{
+    display:none;
+}
+
+
+/* home catalogue section */
+.home-catalogue{
+    height: max-content;
+    width:100%;
+    padding:0;
+    padding-bottom: 50px;
+    margin-right:0;
+    background-image: url('./images/backgrounds/back4.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: space-around;
+/**/
+
+
+}
+.left-column-description{
+    width:25%;
+    text-align: center;
+    padding: 50px 50px;
+    
+
+}
+.intro{
+    padding-top:25px;
+    padding-bottom:20px;
+}
+.autograph{
+    width:140px;
+}
+.box-description{
+    padding:30px;
+    background-color: #000000;
+    border-right: 3px solid #b0afa7;
+    font-size: 13px;
+    height: 436px;
+
+}
+
+.catname{
+    font-family: 'Parisienne', cursive;
+}
+
+.divider{
+    width: 200px;
+    height:15px;
+}
+
+.description{
+    margin: 20px;
+}
+
+.browse-music{
+    margin-top: 10px;
+}
+.btn-browse{
+    position: sticky;
+    margin-top: 20px;
+}
+
+
+
+.rihgt-column-description{
+    /* width:900px; */
+    width:fit-content;
+    flex-wrap: wrap;
+}
+.other-artists{
+    /*justify-self: end;
+    display:flex;
+    gap:100px;
+    flex-wrap: wrap;
+    justify-content: center;*/
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:25px;
+
+}
+.artistImage{
+    margin-top:80px;
+    width: 600px;
+}
+.otherA{
+    height:170px;
+    width:128px;  
+    background-color: #000000;
+    border-radius: 10px;
+    border:#9D0122;
+    border-width: 10px ;
+    box-shadow: 0px 0px 10px 5px #9D0122;
+    opacity: 1;
+}
+.otherA:hover{
+    box-shadow: 0px 0px 12px 6px #be173b;
+}
+
+
+
+
+
+/* home about section */
+
+.home-about{
+    height: 100vh;
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin:auto;
+   
+
+}
+.rec-logo{
+    background-image: url('./images/record-logo.jpg');
+    background-size: cover;
+    width:800px;
+    height:350px;
+    margin-left:auto;
+    margin-right: auto;
+    margin-top: 10px;
+
+}
+.about-us{
+    text-align: center;
+    margin-bottom: 80px;
+    width: 500px;
+    align-self: center;
+    line-height: 25px;
+    color:#bbbaaf
+}
+.about-us>h2{
+   margin-bottom: 30px;
+   color: #F0EFE7;
+}
+.about-us>p{
+    line-height: 18px;
+    color: #929186;
+    font-size: larger;
+}
+.socials{
+    background-image: url('./images/backgrounds/back4.jpg');
+    background-size:cover;
+    background-position-y:30%;
+   /* background-color: #9D0122; */
+    margin-bottom: 20px;
+    padding:25px;
+    display: flex;
+    justify-content: center;
+    gap:121px;
+    width:100vw;
+}
+
+
+
+
+
+/* home top section */
+
+
+.home-page{
+    /* background:black; */
+    height: max-content;
+    width: 100vw;
+}
+
+ .navigation{
+    
+    position:fixed;
+    width:100%;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap:410px;
+    z-index: 9999;
+} 
+.navmenu{
+    /* background-image: url('./images/backgrounds/back4.jpg'); */
+
+    background-size:cover;
+    background-position-y:center;
+    border-radius: 15px 0 0 15px;
+    font-size: larger;
+    font-weight: 400;
+    padding:25px;
+    list-style: none;
+    display: flex;
+    justify-content: end;
+    gap:300px;
+    margin-right: 90px;
+    flex:auto; 
+
+}
+
+.navmenu a{
+    text-decoration: none;
+    color:#bbbaaf;
+    text-shadow: 0 0 5px rgb(223, 119, 119);
+    height:100%;
+    padding: 0.25rem;
+}
+
+.navmenu li:hover{
+    color:#fff1f1;
+    transform:scale(1.06);
+    text-shadow: 0 0 15px rgb(181, 136, 136);
+    cursor:pointer;
+}
+
+
+
+.logo{
+    padding-left: 138px;
+    width: 90px;
+    height:25px;
+
+}
+
+.home-mid{
+    color:#F0EFE7;
+    height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+.right-column{
+    margin-right: 60px;
+    margin-left: 130px;
+    /* margin-top: 150px; */
+}
+.home-record{
+    max-width: 700px;
+}
+.left-column{
+    margin-left:100px;
+    max-width: 400px;
+    text-align: left;
+    /* margin-top:150px; */
+}
+
+.home-lil-para > p{
+    line-height: 18px;
+    color: #929186;
+}
+.home-lil-para > .home-lil-headers{
+    font-size: 18px;
+}
+.home-lil-headers{
+    color: #bcbbb0;
+    margin-top:15px;
+    margin-bottom:10px;
+}
+.home-big-para{
+    margin-bottom: 25px;
+    max-width: 200px;
+}
+.title{
+    font-size: 55px;
+    font-weight: 400;
+    color:#fff1f1
+}
+.btns{
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+
+}
+.btn-browse,
+.btnn{
+   
+
+    color:#c4c2b8;
+    border-radius: 18px;
+    font-size: medium;
+    font-weight: 300;
+    padding: 10px 50px;
+}
+.btnn{
+    border: none;
+    width:200px;
+    background-color: #9D0122;
+    text-shadow: -3px 3px 5px rgb(7, 5, 5);
+}
+.btnn:hover{
+    transform: scale(1.06);
+    background-color: crimson;
+    cursor: pointer;
+}
+.btn-browse{
+    position: relative;
+    width:260px;
+    margin-top: 18px;
+    margin-bottom:25px;
+    background-color: #000000;
+    border:#9D0122;
+    border-width: 10px ;
+    box-shadow: 0px 0px 10px 5px #9D0122;
+    /* opacity: 1; */
+}
+.btn-browse:hover{
+    background-color: #2c1212;
+}
+
+
+
+/* swiper */
+
+
+
+
+
+
+
+
+

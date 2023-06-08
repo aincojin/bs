@@ -1,0 +1,196 @@
+
+.ccatalogue{
+    width:100%;
+    background-color: rgb(112, 15, 35);
+    display:flex;
+    padding: 25px 10px;
+    justify-content: start;
+    align-items: center;
+    gap: 50px;
+    position: fixed;
+    z-index: 999999;
+}
+
+.ccatalogue h1{
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 300;
+    margin-top: 5px;
+}
+.logo{
+    cursor: pointer;
+}
+.cat_sign_log{
+    font-weight: 400;
+    margin-left: auto;
+
+}
+.shopping-cart{
+    margin-right: 85px;
+    width: 28px;
+    
+}
+
+.cat_main{
+    /* height:1000px; */
+    display: flex;
+    width:100%;
+    height:max-content;
+    justify-content: center;
+    /* background-image: url(./images/backgrounds/back2.jpg); */
+    background-size:cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    padding-top: 70px;
+    background-image: linear-gradient(to bottom, rgb(125, 18, 40),black );
+}
+
+/* .cat_nav{
+     height:inherit; 
+    background-color:rgb(88, 13, 28);
+    width: 240px;
+    
+    
+} */
+
+.cat_products{
+    z-index: 9999;
+    height: max-content;
+    width:70%;
+    /* background-color: #311919; */
+    background-color: transparent;
+    border-left: rgb(112, 20, 38) solid;
+    border-right: rgb(112, 20, 38) solid;
+
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    gap:30px;
+    padding: 50px;
+    align-content: flex-start;
+    justify-content: center;
+    
+ 
+}
+.cat_products::-webkit-scrollbar{
+    display:none;
+}
+
+.prod_card{
+    position:relative;
+}
+.overlay{
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    opacity:0.4;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 5px;
+    height: 0;
+    bottom: 0;
+    transition: .5s ease;
+}
+
+.prod_card:hover .overlay{
+    height:100%;
+}
+ .prod_card{
+    /* height: 200px;
+    width: 230px; */
+    height:250px;
+    width:250px;
+    background-color: #c4c2b8;
+    margin-bottom:10px ;
+    border-radius: 5px;
+}
+.genre-card{
+    margin-bottom: 30px;
+    text-align: center;
+}
+.text{
+    height:100%;
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+} 
+
+
+/* body{
+    
+    scroll-behavior: smooth;
+    /* min-height: 100%; 
+}
+.cat_products::-webkit-scrollbar{
+    display:none;
+}
+
+.ccatalogue{
+    height:100px;
+    background-color: rgb(142, 18, 42);
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap:70px;
+}
+
+.ccatalogue h1{
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 300;
+    margin-top:10px;
+}
+.cat_main{
+    width:100%;
+    height:100%;
+    display: flex;
+}
+.cat_nav{
+    width:240px;
+    height:inherit;
+    /* background-color: rgb(88, 13, 28); 
+    background-color: #fff;
+}
+.cat_products{
+    height: fit-content;
+    width: 1240px;
+    background-color: #311919;
+    display: flex;
+    flex-wrap: wrap;
+    gap:30px;
+    padding: 50px;
+    align-content: flex-start;
+    justify-content: center;
+    overflow: scroll;
+}
+.prod_card{
+    position:relative;
+}
+.overlay{
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    opacity:0.4;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 10px;
+    height: 0;
+    bottom: 0;
+    transition: .5s ease;
+}
+
+.prod_card:hover .overlay{
+    height:100%;
+}
+ .prod_card{
+    height: 200px;
+    width: 230px;
+    background-color: #c4c2b8;
+    margin-bottom: 50px;
+    border-radius: 10px;
+}
+.text{
+    height:100%;
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+} */

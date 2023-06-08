@@ -1,0 +1,144 @@
+body{
+    font-family: 'League Spartan', sans-serif;
+    /* font-family: 'Parisienne', cursive;
+    font-family: 'Poiret One', cursive; */
+}
+
+.container{
+    height: 100vh;
+    width:100vw; 
+    background-image: linear-gradient(to right, black,#591a1a);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .box{
+    position: absolute;
+    width:350px;
+    border: 3px solid;
+    border-image:linear-gradient(to right, black,#591a1a);
+    background-color: transparent;
+    box-shadow: 0px 0px 10px 3px #000000;
+    border-radius: 12px;
+    padding: 25px;
+    padding-bottom: 40px;
+}
+.box h2{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 200;
+    margin-bottom: 30px;
+    position: relative;
+    color: rgb(255, 255, 255);
+}
+
+.box .input_box{
+    width:100%;
+    position: relative;
+}
+
+.box .input_box input[type="text"],
+.box .input_box input[type="password"]
+{
+    color:aliceblue;
+    caret-color: rgb(170, 155, 155);
+    width:100%;
+    font-size: 18px;
+    margin:18px 0px;
+    outline: none;
+    border-width: 0px 0px 2px 0px;
+    border-color: #84142c;
+    background-color: transparent;
+
+}
+.box .input_box label{
+    position: absolute;
+    left:0;
+    top: 4px;
+    font-size: 22px;
+    color: rgb(209, 195, 195);
+    pointer-events:none;
+    transition: 0.2s;
+}
+.box .input_box input:focus + label,
+.box .input_box input:valid + label{
+    top: -6px;
+    font-size: 13px;
+    color:#928689;
+}
+.password_checkbox{
+    
+    width:100%;
+    font-size: 16px;
+    display: flex;
+    justify-content: flex-end;
+    color: #a29497;
+   
+}
+.password_checkbox p{
+    margin-left: 8px;
+
+}
+
+.back_button{
+    position:fixed;
+    width:100px;
+    color:#c4c2b8;
+    border-radius: 15px;
+    border:none;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 15px 16px;
+    background-color: #741228;
+    text-shadow: -1px 2px 5px rgb(7, 5, 5);
+    margin-top: 40px; 
+    margin-left: 70px;
+    cursor: pointer;
+}
+
+
+.signup_button,
+.login_button{
+    
+    width:100%;
+    color:#c4c2b8;
+    border-radius: 15px;
+    border:none;
+    font-size: 18px;
+    font-weight: 300;
+    padding: 12px 50px;
+    background-color: #9D0122;
+    text-shadow: -1px 2px 5px rgb(7, 5, 5);
+    margin-top: 21px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.back_button:hover,
+.signup_button:hover,
+.login_button:hover{
+    transform: scale(1.01);
+    background-color: rgb(207, 11, 50);
+    cursor: pointer;
+}
+.signup_button:active,
+.login_button:active{
+    transform: scale3d(0.99,0.99,0.99);
+}
+
+.login_link,
+.signup_link {
+    margin-top: 21px;
+    text-align: center;
+    text-decoration: none;
+
+}
+
+.login_link:hover,
+.signup_link:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-position:under;
+}
+ 

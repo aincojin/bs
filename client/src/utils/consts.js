@@ -1,0 +1,7 @@
+export const HOME_ROUTE='/'
+export const ADMIN_ROUTE='/admin'
+export const LOGIN_ROUTE='/log-in'
+export const SIGNUP_ROUTE='/sign-up'
+export const ABOUT_ROUTE='/about'
+export const GENRES_ROUTE='/genres'
+export const CATALOGUE_ROUTE='/catalogue'
